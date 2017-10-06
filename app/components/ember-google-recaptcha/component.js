@@ -1,0 +1,1 @@
+export { default } from 'ember-google-recaptcha/components/ember-google-recaptcha/component';

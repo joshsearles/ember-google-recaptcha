@@ -1,4 +1,6 @@
 /* eslint-env node */
+/* eslint-env node */
+'use strict';
 
 module.exports = function(environment) {
   var ENV = {
@@ -15,6 +17,10 @@ module.exports = function(environment) {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
+    },
+
+    googleRecaptcha: {
+      siteKey: 'Your Google reCaptcha Site Key Here', //for dummy app only
     },
 
     APP: {

@@ -6,12 +6,18 @@
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Joshua Searles, Davide Papagni",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshsearles/ember-google-recaptcha.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joshsearles/ember-google-recaptcha/issues"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
