@@ -37,6 +37,10 @@ export default Ember.Component.extend({
    * @return {undefined}
    */
   renderReCaptcha() {
+    if (get(this, 'isDestroyed')) {
+      return;
+    }
+
     set(this, 'config', getWithDefault(getOwner(this).resolveRegistration('config:environment'), 'googleRecaptcha', {}));
     set(this, 'sitekey', get(this, 'config.siteKey'));
 
