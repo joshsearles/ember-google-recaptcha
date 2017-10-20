@@ -40,9 +40,11 @@ export default Ember.Component.extend({
     if (get(this, 'isDestroyed')) {
       return;
     }
-
-    set(this, 'config', getWithDefault(getOwner(this).resolveRegistration('config:environment'), 'googleRecaptcha', {}));
-    set(this, 'sitekey', get(this, 'config.siteKey'));
+    
+    if (!this.get('sitekey')) {
+      set(this, 'config', getWithDefault(getOwner(this).resolveRegistration('config:environment'), 'googleRecaptcha', {}));
+      set(this, 'sitekey', get(this, 'config.siteKey'));
+    }
 
     const grecaptcha = window.grecaptcha;
     if (isNone(grecaptcha)) {
