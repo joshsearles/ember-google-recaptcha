@@ -54,6 +54,7 @@ export default Ember.Component.extend({
     } else {
       let container = this.$()[0],
         properties = getProperties(this, [
+            'badge',
             'sitekey',
             'theme',
             'type',

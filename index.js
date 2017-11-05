@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-google-recaptcha',
+  name: 'google-recaptcha',
 
   contentFor: function(type, config) {
     let content = '';

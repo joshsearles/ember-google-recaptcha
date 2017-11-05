@@ -1,3 +1,16 @@
-Google recaptcha for Emberjs
-{{ember-google-recaptcha size="invisible" ref=(mut googleRecaptcha)}}
-<button {{action "clickButton" click}}>Click Me</button>
+<h3>Google reCaptcha v2 for Emberjs</h3>
+{{google-recaptcha}}
+
+<h3>Google reCaptcha v2 (invisible)</h3>
+{{google-recaptcha size="invisible" badge="inline" ref=(mut iGoogleRecaptcha)}}
+<br />
+<button {{action "invisibleClickToExecute" click}}>Execute invisible reCaptcha</button>
+<hr />
+<ul>
+    <li>
+        <a href="https://www.google.com/recaptcha/intro/" title="Google reCaptcha v2 Site/Key Administration" target="_blank">Site/Key Administration</a>
+    </li>
+    <li>
+        <a href="https://developers.google.com/recaptcha/intro" title="Google reCaptcha v2 Documentation" target="_blank">Documentation</a>
+    </li>
+</ul>

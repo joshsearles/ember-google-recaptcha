@@ -1,0 +1,1 @@
+export { default } from 'google-recaptcha/components/google-recaptcha/component';

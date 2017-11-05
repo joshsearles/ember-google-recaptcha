@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('ember-google-recaptcha', 'Integration | Component | ember google recaptcha', {
+moduleForComponent('google-recaptcha', 'Integration | Component | google recaptcha', {
   integration: true
 });
 
@@ -10,15 +10,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{ember-google-recaptcha}}`);
+  this.render(hbs`{{google-recaptcha}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#ember-google-recaptcha}}
+    {{#google-recaptcha}}
       template block text
-    {{/ember-google-recaptcha}}
+    {{/google-recaptcha}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
