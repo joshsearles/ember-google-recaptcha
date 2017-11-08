@@ -1,6 +1,6 @@
 {
   "name": "ember-google-recaptcha",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Google reCaptcha v2 Ember JS addon",
   "keywords": [
     "ember-addon",
