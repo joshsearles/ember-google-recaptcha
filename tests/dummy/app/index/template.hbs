@@ -1,16 +1,55 @@
-<h3>Google reCaptcha v2 for Emberjs</h3>
-{{google-recaptcha}}
+<div id="island">
+    <div class="container">
+        <h1>ember-google-recaptcha</h1>
+        {{#unless model.hasSiteKey}}
+            <p>It appears that you have not set your Google reCATPCHA Site Key!</p>
+            <h4>Dummy Checklist</h4>
+            <ol class="list">
+                <li>Go to {{{atag model.urls 'admin'}}} and generate a <span class="item">Site Key</span> for localhost (or development URL).</li>
+                <li>Paste your <span class="item">Site Key</span> into <span class="url">tests/dummy/config/environment.js</span> for property <span class="code">ENV.googleRecaptcha.siteKey</span></li>
+                <li>Viola! You're ready to rock and roll!</li>
+            </ol>
+            <p class="note">This checklist is only to test the dummy app, follow the readme at {{{atag model.urls 'github'}}} to setup your app.</p>
+        {{else}}
+            <div class="content">
+                {{#unless model.isDefault}}
+                    {{#if model.isInvisible}}
+                        <h3>Invisible reCAPTCHA</h3>
+                        {{google-recaptcha size="invisible" badge="inline" onSuccess=(action 'onSuccessInvisibleCallback') ref=(mut iGoogleRecaptcha)}}
+                        <br />
+                        <button class="btn execbtn" {{action "onClickInvisibleExecute"}}>Execute invisible reCaptcha</button>
+                    {{else if model.isStandard}}
+                        <h3>Standard reCAPTCHA</h3>
+                        {{google-recaptcha onSuccess=(action 'onSuccessStandardCallback')}}
+                    {{/if}}
+                    <p class="note">Check the console (F12) to see the actions of the reCaptcha.</p>
+                    <div class="options">
+                        <button class="btn backbtn" {{action 'onClickMenu' 'default'}}>Back</button>
+                    </div>
+                {{else}}
+                    <h3>Demo Options</h3>
+                    <ul id="defOptions">
+                        <li><button class="btn standbtn" {{action 'onClickMenu' 'standard'}}>Standard</button></li>
+                        <li><button class="btn invisbtn" {{action 'onClickMenu' 'invisible'}}>Invisible</button></li>
+                    </ul>
+                {{/unless}}
+            </div>
 
-<h3>Google reCaptcha v2 (invisible)</h3>
-{{google-recaptcha size="invisible" badge="inline" ref=(mut iGoogleRecaptcha)}}
-<br />
-<button {{action "invisibleClickToExecute" click}}>Execute invisible reCaptcha</button>
-<hr />
-<ul>
-    <li>
-        <a href="https://www.google.com/recaptcha/intro/" title="Google reCaptcha v2 Site/Key Administration" target="_blank">Site/Key Administration</a>
-    </li>
-    <li>
-        <a href="https://developers.google.com/recaptcha/intro" title="Google reCaptcha v2 Documentation" target="_blank">Documentation</a>
-    </li>
-</ul>
+        <hr />
+        <h4>Resources</h4>
+        <ul>
+            <li>
+                {{{atag model.urls 'admin'}}}
+            </li>
+            <li>
+                {{{atag model.urls 'dev'}}}
+            </li>
+        </ul>
+        {{/unless}}
+
+        <ul id="links">
+            <li>{{{atag model.urls 'npm' 'npm'}}}</li>
+            <li>{{{atag model.urls 'github' 'github'}}}</li>
+        </ul>
+    </div>
+</div>

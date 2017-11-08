@@ -1,0 +1,137 @@
+body {
+  background: #FAF2F2;
+  color: dimgray;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: crimson;
+  font-style: italic;
+}
+
+#island {
+  background: white;
+  border: 1px solid #CCC;
+  bottom: 50%;
+  box-shadow: 0 5px 15px #CCC;
+  max-height: 100%;
+  overflow: auto;
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, 50%);
+
+  .container {
+    padding: 50px;
+    position: relative;
+  }
+
+  .content {
+    margin-bottom: 30px;
+  }
+
+  .options {
+    margin-top: 20px;
+    text-align: right;
+
+
+  }
+
+  .btn {
+    border: 0;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 10px;
+
+    &.backbtn {
+      background-color: darkslategrey;
+    }
+
+    &.invisbtn {
+      background-color: midnightblue;
+    }
+
+    &.standbtn {
+      background-color: brown;
+    }
+
+    &.execbtn {
+      background-color: aquamarine;
+      color: dimgrey;
+    }
+  }
+}
+
+#defOptions {
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    + li {
+      margin-left: 10px;
+    }
+  }
+}
+
+#links {
+  left: 10px;
+  list-style: none;
+  position: absolute;
+  top: 10px;
+
+  li {
+    display: inline-block;
+
+    + li {
+      margin-left: 10px;
+    }
+
+    a {
+      color: white;
+      display: inline-block;
+      font-size: 12px;
+      padding: 0 5px;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px darkgray;
+
+      &.npm {
+        background-color: coral;
+      }
+
+      &.github {
+        background-color: dodgerblue;
+      }
+    }
+  }
+}
+
+.code {
+  background: lightgray;
+  color: darkslategrey;
+  font-family: monospace;
+}
+
+.item {
+  font-weight: bold;
+}
+
+.note {
+  color: chocolate;
+
+  &::before {
+    content: 'Note: ';
+    font-weight: bold;
+  }
+}
+
+.url {
+  color: slateblue;
+  font-style: italic;
+}
+
+li {
+  font-size: 14px;
+  line-height: 150%;
+}
+

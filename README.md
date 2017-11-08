@@ -1,8 +1,14 @@
 # ember-google-recaptcha
 Utilize Google reCAPTCHA v2 as an Ember js component that handles both the standard and invisible versions. 
 
+[![npm](https://img.shields.io/npm/v/ember-google-recaptcha.svg)]()
+[![Build Status](https://travis-ci.org/joshsearles/ember-google-recaptcha.svg?branch=master)](https://travis-ci.org/joshsearles/ember-google-recaptcha)
+[![dependencies Status](https://david-dm.org/joshsearles/ember-google-recaptcha/status.svg)](https://david-dm.org/joshsearles/ember-google-recaptcha)
+[![devDependencies Status](https://david-dm.org/joshsearles/ember-google-recaptcha/dev-status.svg)](https://david-dm.org/joshsearles/ember-google-recaptcha?type=dev)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-google-recaptcha.svg)](https://emberobserver.com/addons/ember-google-recaptcha)
+
 ### Resources
-* [Google reCAPTCHA v2 Site/Key Administration](https://www.google.com/recaptcha/admin/)
+* [Google reCAPTCHA v2 Site/Key Administration](https://www.google.com/recaptcha/admin)
 * [Google reCAPTCHA v2 Documentation](https://developers.google.com/recaptcha/intro)
 
 ## Install
@@ -136,17 +142,23 @@ actions: {
 
 #### Passable Properties
 The following properties may be passed to the component
-- badge [bottomright:default|bottomleft|inline] (invisible only)
+- badge <bottomright\:default|bottomleft|inline> (invisible only)
 - siteKey (using `config/environment.js` is recommended)
-- size [invisible]
-- theme [dark|light:default] (standard only)
-- type [audio|image:default]
+- size <invisible>
+- theme <dark|light\:default> (standard only)
+- type <audio|image\:default>
 - tabindex
 
 ## Credit
 Based off the code of [ember-g-recpatcha](https://github.com/algonauti/ember-g-recaptcha) by [algonauti](https://github.com/algonauti/)
 
-## Change Log 
+## Change Log
+### v0.2.2
+- Added to dummy app and made it more sophisticated
+- Upgraded dev dependencies
+- Added badges to Readme.md
+- Minor Fixes
+
 ### v0.2.1
 - Updated Documentation
 - Updated contributed code

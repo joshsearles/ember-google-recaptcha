@@ -1,5 +1,4 @@
 /* eslint-env node */
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
@@ -20,7 +19,7 @@ module.exports = function(environment) {
     },
 
     googleRecaptcha: {
-      siteKey: 'Your Google reCaptcha Site Key Here', //for dummy app only
+      siteKey: '<Google reCAPTCHA Site Key Here>', //for dummy app only
     },
 
     APP: {
