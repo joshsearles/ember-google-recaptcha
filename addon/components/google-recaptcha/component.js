@@ -40,17 +40,17 @@ export default Ember.Component.extend({
     if (get(this, 'isDestroyed')) {
       return;
     }
-    
+
     if (!isPresent(get(this, 'sitekey'))) {
       set(this, 'config', getWithDefault(getOwner(this).resolveRegistration('config:environment'), 'googleRecaptcha', {}));
       set(this, 'sitekey', get(this, 'config.siteKey'));
     }
 
     const grecaptcha = window.grecaptcha;
-    if (isNone(grecaptcha)) {
+    if (isNone(grecaptcha) || typeof grecaptcha.render !== 'function') {
       later(() => {
         this.renderReCaptcha();
-      }, 500);
+      }, 50);
     } else {
       let container = this.$()[0],
         properties = getProperties(this, [
