@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 const {
+  assign,
   computed: {
     alias,
   },
@@ -42,31 +43,41 @@ export default Ember.Component.extend({
     }
 
     if (!isPresent(get(this, 'sitekey'))) {
-      set(this, 'config', getWithDefault(getOwner(this).resolveRegistration('config:environment'), 'googleRecaptcha', {}));
+      let config = getWithDefault(
+        getOwner(this).resolveRegistration('config:environment'),
+        'googleRecaptcha',
+        {}
+      );
+
+      config = assign({
+        pollForGlobalInterval: 500
+      }, config)
+
+      set(this, 'config', config);
       set(this, 'sitekey', get(this, 'config.siteKey'));
     }
 
     const grecaptcha = window.grecaptcha;
+
     if (isNone(grecaptcha) || typeof grecaptcha.render !== 'function') {
       later(() => {
         this.renderReCaptcha();
-      }, 50);
+      }, get(this, 'config.pollForGlobalInterval'));
     } else {
-      let container = this.$()[0],
-        properties = getProperties(this, [
-            'badge',
-            'sitekey',
-            'theme',
-            'type',
-            'size',
-            'tabindex',
-          ]
-        ),
-        parameters = merge(properties, {
-          callback: get(this, 'successCallback').bind(this),
-          'expired-callback': get(this, 'expiredCallback').bind(this)
-        }),
-        widgetId = grecaptcha.render(container, parameters);
+      const container = this.$()[0];
+      let properties = getProperties(this, [
+                          'badge',
+                          'sitekey',
+                          'theme',
+                          'type',
+                          'size',
+                          'tabindex',
+                        ]);
+      const parameters = merge(properties, {
+        callback: get(this, 'successCallback').bind(this),
+        'expired-callback': get(this, 'expiredCallback').bind(this)
+      });
+      const widgetId = grecaptcha.render(container, parameters);
 
       setProperties(this, {
         widgetId: widgetId,
